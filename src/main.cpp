@@ -121,7 +121,7 @@ void opcontrol() {
 		}
 		else if (high) {
 			uptakeHigh = 127;
-			uptakeLow = 600;
+			uptakeLow = 127;
 		}
 		else {
 			uptakeHigh = 0;
