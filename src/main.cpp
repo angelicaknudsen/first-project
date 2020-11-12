@@ -92,8 +92,8 @@ void opcontrol() {
 
 	while (true) {
 		int left,right;
-		int low, high;
-		int iForward, iReverse;
+		bool low, high;
+		bool iForward, iReverse;
 
 		left = joystick.get_analog(ANALOG_LEFT_Y);
 		right = joystick.get_analog(ANALOG_RIGHT_Y);
@@ -116,12 +116,12 @@ void opcontrol() {
 		driveBackRight = right;
 
 		if (low) {
-			uptakeHigh = -high;
-			uptakeLow = low;
+			uptakeHigh = -127; //rpm ??
+			uptakeLow = 127;
 		}
 		else if (high) {
-			uptakeHigh = high;
-			uptakeLow = low;
+			uptakeHigh = 127;
+			uptakeLow = 600;
 		}
 		else {
 			uptakeHigh = 0;
@@ -129,12 +129,12 @@ void opcontrol() {
 		}
 
 		if (iForward) {
-			intakeLeft = iForward;
-			intakeRight = iForward;
+			intakeLeft = 127; //200 rpm???
+			intakeRight = 127;
 		}
 		else if (iReverse) {
-			intakeLeft = iReverse;
-			intakeRight = iReverse;
+			intakeLeft = 127;
+			intakeRight = 127;
 		}
 		else {
 			intakeLeft = 0;
